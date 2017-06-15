@@ -4,7 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+/**
+ * The aim was to see if I can serve a DB on mySQL server and interact with
+ * it from a Java project.  Checking a CD Collection DB with a few CDs.
+ * @author babak51
+ * @date 06/15/2017
+ */
 public class MySqlAccess {
 	private Connection connect = null;
 	private Statement statement = null;
@@ -12,8 +17,13 @@ public class MySqlAccess {
 	
 	public void readDataBase() throws Exception{
 		// This will load the MySQL driver, each DB has its own driver
-		// connector is at /Users/mohammed/Downloads/sql/mysql/mysql-connector-java-5.1.42 folder
-		// You need to start the VAMPP servers (includes the mysql server on the Mac)
+		// connector is at ~/Downloads/sql/mysql/mysql-connector-java-5.1.42 folder
+		// You need to start the XAMPP's servers (includes the mySQL server on the Mac)
+		// you need to select the project then use properties->java build path->libraries->add the connector as an external jar
+		// the location of the jar is given above on my PC.  So two things you need to do:
+		// 1) add the external jar to library of the project.
+		// 2) make sure the XAMPP's servers are all running (all 3 of them).  The Database is on the mySQL server.
+		// When all this is done then you can interact with the cdcol (CD Collection) DB.
 		Class.forName("com.mysql.jdbc.Driver"); 
 		
 		// Setup the connection with the DB
